@@ -1,0 +1,58 @@
+---
+import ExperienceCard from './ExperienceCard.astro';
+
+const experiences = [
+  {
+    company: "TechCorp Solutions",
+    position: "Senior Full-Stack Developer",
+    duration: "2022 - Present",
+    description: "Led development of scalable web applications serving 100k+ users. Architected microservices infrastructure and implemented CI/CD pipelines, resulting in 40% faster deployment cycles.",
+    technologies: ["React", "Node.js", "TypeScript", "AWS", "Docker", "PostgreSQL"],
+    isCurrentJob: true
+  },
+  {
+    company: "StartupXYZ",
+    position: "Frontend Developer",
+    duration: "2020 - 2022",
+    description: "Developed responsive web applications using modern JavaScript frameworks. Collaborated with UX/UI designers to implement pixel-perfect designs and improved user engagement by 35%.",
+    technologies: ["React", "Vue.js", "JavaScript", "Sass", "Firebase", "Git"]
+  },
+  {
+    company: "Digital Agency Inc",
+    position: "Junior Web Developer",
+    duration: "2019 - 2020",
+    description: "Built custom WordPress themes and plugins for client projects. Optimized website performance and implemented SEO best practices, achieving 95+ PageSpeed scores.",
+    technologies: ["JavaScript", "PHP", "WordPress", "MySQL", "HTML/CSS", "jQuery"]
+  }
+];
+---
+
+<section class="w-full max-w-4xl px-4 sm:px-0">
+  <h3 class="text-2xl sm:text-3xl font-semibold text-center mb-6 sm:mb-8 text-gray-900">Working Experience</h3>
+  <div class="space-y-4 sm:space-y-6">
+    {experiences.map((experience) => (
+      <ExperienceCard 
+        company={experience.company}
+        position={experience.position}
+        duration={experience.duration}
+        description={experience.description}
+        technologies={experience.technologies}
+        isCurrentJob={experience.isCurrentJob}
+      />
+    ))}
+  </div>
+</section>
+
+<style>
+  @media screen and (max-width: 640px) {
+    .space-y-4 > * + * {
+      margin-top: 1rem;
+    }
+  }
+  
+  @media screen and (max-width: 768px) {
+    .space-y-4 > * + * {
+      margin-top: 1.25rem;
+    }
+  }
+</style>

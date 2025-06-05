@@ -1,0 +1,39 @@
+---
+interface Props {
+  company: string;
+  position: string;
+  duration: string;
+  description: string;
+  technologies: string[];
+  isCurrentJob?: boolean;
+}
+
+const { company, position, duration, description, technologies, isCurrentJob = false } = Astro.props;
+---
+
+<div class="bg-white/80 p-4 sm:p-6 rounded-2xl backdrop-blur-sm border border-white/30 relative overflow-hidden">
+  <div class="flex flex-col gap-3 mb-4">
+    <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2">
+      <div class="flex-1 min-w-0 pr-0 sm:pr-20">
+        <h4 class="text-lg sm:text-xl font-semibold text-gray-900 mb-1 leading-tight break-words">{position}</h4>
+        <h5 class="text-base sm:text-lg font-medium text-pink-500 mb-2 break-words">{company}</h5>
+      </div>
+      <div class="flex flex-row justify-between items-center sm:flex-col sm:items-end gap-2">
+        <span class="text-xs sm:text-sm text-gray-500 bg-gray-100 px-2 py-1 sm:px-3 rounded-full whitespace-nowrap">{duration}</span>
+        {isCurrentJob && (
+          <span class="bg-gradient-to-r from-pink-300 to-pink-500 text-white px-2 py-1 sm:px-3 rounded-full text-xs font-medium">Current</span>
+        )}
+      </div>
+    </div>
+  </div>
+  
+  <p class="text-sm sm:text-base text-gray-600 mb-4 leading-relaxed">{description}</p>
+  
+  <div class="flex flex-wrap gap-1.5 sm:gap-2">
+    {technologies.map((tech) => (
+      <span class="bg-gray-100 text-gray-700 px-2 py-1 sm:px-3 rounded-full text-xs sm:text-sm font-medium border border-gray-200 break-words">
+        {tech}
+      </span>
+    ))}
+  </div>
+</div>

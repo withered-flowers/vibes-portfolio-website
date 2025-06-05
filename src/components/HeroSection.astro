@@ -1,0 +1,40 @@
+---
+import Avatar from "./Avatar.astro";
+import CTAButtons from "./CTAButtons.astro";
+import SocialLinks from "./SocialLinks.astro";
+---
+
+<section class="text-center max-w-2xl">
+  <div class="flex flex-col items-center gap-6">
+    <Avatar />
+    <h1
+      class="text-5xl font-bold m-0 bg-gradient-to-r from-pink-300 to-pink-500 bg-clip-text text-transparent"
+    >
+      John Doe
+    </h1>
+    <h2 class="text-2xl font-normal m-0 text-gray-500">
+      Full-Stack Software Engineer
+    </h2>
+    <p class="text-lg leading-relaxed text-gray-600 m-0 max-w-lg">
+      Passionate about building scalable web applications and creating elegant
+      solutions to complex problems. Specializing in React, Node.js, and cloud
+      architectures.
+    </p>
+    <CTAButtons />
+    <SocialLinks />
+  </div>
+</section>
+
+<style>
+  @media screen and (max-width: 768px) {
+    .text-5xl {
+      font-size: 2.5rem;
+    }
+    .text-2xl {
+      font-size: 1.25rem;
+    }
+    .text-lg {
+      font-size: 1rem;
+    }
+  }
+</style>
